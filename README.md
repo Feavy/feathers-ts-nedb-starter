@@ -1,0 +1,1 @@
+#feathers-ts-nedb-starter
