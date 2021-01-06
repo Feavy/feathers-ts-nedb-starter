@@ -44,22 +44,16 @@ app.on("connection", (connection) => app.channel("everybody").join(connection));
 app.publish((data) => app.channel("everybody"));
 
 // Start the server
-app
-	.listen(PORT)
+app.listen(PORT)
 	.on("listening", () =>
 		console.log(`Feathers server listening on localhost:${PORT}`)
 	);
-// app.service("messages").create({
-// 	text: "Hello world from the server"
-// });
+
+app.service("messages").create({
+	text: "Hello world from the server"
+});
 
 MessageModel.find({}, function (err, docs) {
 	console.log("Existing messages")
 	console.log(docs);
 });
-
-// For good measure let's create a message
-// So our API doesn't look so empty
-// app.service("messages").create({
-//   text: "Hello world from the server"
-// });
